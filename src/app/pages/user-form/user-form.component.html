@@ -1,0 +1,48 @@
+<div class="container mt-5">
+  <h3>{{ isUpdate ? 'ACTUALIZAR USUARIO' : 'NUEVO USUARIO' }}</h3>
+
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="first_name" class="form-label">Nombre Usuario</label>
+      <input type="text" id="first_name" formControlName="first_name" class="form-control" />
+      <div *ngIf="userForm.get('first_name')?.touched && userForm.get('first_name')?.invalid" class="text-danger">
+        Nombre obligatorio
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="last_name" class="form-label">Apellido Usuario</label>
+      <input type="text" id="last_name" formControlName="last_name" class="form-control" />
+      <div *ngIf="userForm.get('last_name')?.touched && userForm.get('last_name')?.invalid" class="text-danger">
+        Apellido obligatorio
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="username" class="form-label">Usuario</label>
+      <input type="text" id="username" formControlName="username" class="form-control" />
+      <div *ngIf="userForm.get('username')?.touched && userForm.get('username')?.invalid" class="text-danger">
+        Usuario obligatorio
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email Usuario</label>
+      <input type="email" id="email" formControlName="email" class="form-control" />
+      <div *ngIf="userForm.get('email')?.touched && userForm.get('email')?.invalid" class="text-danger">
+        Email inválido
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="image" class="form-label">Imagen Usuario</label>
+      <input type="text" id="image" formControlName="image" class="form-control" placeholder="https://servidor.com/avatar?u=nombre.usuario" />
+      <div *ngIf="userForm.get('image')?.touched && userForm.get('image')?.invalid" class="text-danger">
+        URL de imagen inválida
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">{{ isUpdate ? 'Actualizar' : 'Guardar' }}</button>
+    <button type="button" class="btn btn-secondary ms-2" [routerLink]="['/home']">Cancelar</button>
+  </form>
+</div>

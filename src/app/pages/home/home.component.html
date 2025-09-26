@@ -1,0 +1,29 @@
+<div class="container my-4">
+  <div class="row g-4">
+    @for (user of paginatedUsers; track user._id) {
+      <div class="col-md-4">
+        <app-card-user [myUser]="user"></app-card-user>
+      </div>
+    }
+  </div>
+</div>
+
+<div class="fixed-bottom bg-light border-top py-3">
+  <div class="container d-flex justify-content-center align-items-center">
+    <button class="btn btn-primary me-3"
+            (click)="prevPage()" 
+            [disabled]="currentPage === 1">
+      Anterior
+    </button>
+
+    <span class="fw-bold">
+      Página {{ currentPage }} de {{ totalPages }}
+    </span>
+
+    <button class="btn btn-primary ms-3"
+            (click)="nextPage()" 
+            [disabled]="currentPage === totalPages">
+      Siguiente
+    </button>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="card shadow-lg border-0 text-center mx-auto mb-4" style="width: 300px;">
+
+  <div class="card-body">
+    <img [src]="myUser.image" 
+         alt="{{ myUser.first_name }}" 
+         class="rounded-circle mb-3" 
+         style="width: 120px; height: 120px; object-fit: cover; border: 4px solid #eee;" />
+
+    
+    <h5 class="card-title fw-bold">{{ myUser.first_name }} </h5>
+    <p class="card-text text-muted">{{ myUser.last_name }}</p>
+  </div>
+
+
+  <hr class="my-0">
+
+<div class="card-footer bg-white d-flex justify-content-center gap-3">
+  <a [routerLink]="['/user', myUser._id]" class="btn btn-outline-primary btn-sm d-flex align-items-center">
+    <i class="bi bi-search me-1"></i> Ver Detalle
+  </a>
+  <a [routerLink]="['/updateuser', myUser._id]" class="btn btn-outline-warning btn-sm d-flex align-items-center">
+    <i class="bi bi-arrow-repeat me-1"></i> Actualizar
+  </a>
+  <button (click)="deleteUser()" class="btn btn-outline-danger btn-sm d-flex align-items-center">
+    <i class="bi bi-trash me-1"></i> Borrar
+  </button>
+</div>
+</div>

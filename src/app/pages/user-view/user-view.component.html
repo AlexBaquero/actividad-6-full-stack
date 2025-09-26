@@ -1,0 +1,27 @@
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+  <div class="card p-4 shadow" style="max-width: 800px; width: 100%;">
+    <div class="row align-items-center">
+      
+
+      <div class="col-md-5 text-center">
+        <img src="{{user.image}}" alt="Foto de usuario" class="rounded-circle img-fluid" style="max-width: 200px;">
+      </div>
+
+
+      <div class="col-md-7">
+        <h4>{{user.first_name}} {{user.last_name}}</h4>
+        <p><strong>Nombre Usuario:</strong> {{user.username}}</p>
+        <p><strong>Email:</strong> {{user.email}}</p>
+
+        <hr> 
+
+        <div class="mt-3">
+          <button class="btn btn-danger me-2" (click)="deleteUser()">Eliminar</button>
+          <button [routerLink]="['/updateuser', user._id]" class="btn btn-primary me-2">Actualizar</button>
+          <button [routerLink]="['/home']" class="btn btn-secondary">Volver a listado</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
